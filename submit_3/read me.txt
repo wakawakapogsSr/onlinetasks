@@ -1,0 +1,1 @@
+ad2 script show alert message using notify
