@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@php
+  $message = Session::get('message');
+@endphp
 @section('content')
 <!-- page start-->
 <div class="container d-flex flex-column">
@@ -61,22 +63,15 @@
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     @if( isset($message) )
-      var message = "{{ $message }}";
-      var type = "success";
-      var duration = "5000";
-      var ripple = true;
-      var dismissible = false;
-      var positionX = "right";
-      var positionY = "top";
       window.notyf.open({
-        type,
-        message,
-        duration,
-        ripple,
-        dismissible,
+        type: "success",
+        message: "{{ $message }}",
+        duration: "5000",
+        ripple: true,
+        dismissible: false,
         position: {
-          x: positionX,
-          y: positionY
+          x: "right",
+          y: "top"
         }
       });
     @endif 
